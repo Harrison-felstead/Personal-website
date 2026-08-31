@@ -1,0 +1,491 @@
+:root {
+  --bg: #0b0e14;
+  --bg-elevated: rgba(255, 255, 255, 0.06);
+  --panel-bg: rgba(11, 14, 20, 0.82);
+  --text: #eef1f6;
+  --text-muted: #a6adba;
+  --border: rgba(255, 255, 255, 0.1);
+  --accent: #7dd3fc;
+  --accent-strong: #38bdf8;
+  --curve-base: rgba(226, 232, 240, 0.4);
+  --curve-trace: #38bdf8;
+  --attractor-color: 125, 211, 252;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] {
+  --bg: #f7f8fb;
+  --bg-elevated: rgba(15, 23, 42, 0.045);
+  --panel-bg: rgba(247, 248, 251, 0.86);
+  --text: #171a21;
+  --text-muted: #565d6d;
+  --border: rgba(15, 23, 42, 0.12);
+  --accent: #0369a1;
+  --accent-strong: #0284c7;
+  --curve-base: rgba(15, 23, 42, 0.55);
+  --curve-trace: #0284c7;
+  --attractor-color: 3, 105, 161;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  padding: 7rem 5vw;
+}
+
+.section--pos-tl { align-items: flex-start; justify-content: flex-start; }
+.section--pos-tr { align-items: flex-start; justify-content: flex-end; }
+.section--pos-bl { align-items: flex-end; justify-content: flex-start; }
+.section--pos-br { align-items: flex-end; justify-content: flex-end; }
+.section--pos-bc { align-items: flex-end; justify-content: center; }
+.section--pos-tc { align-items: flex-start; justify-content: center; }
+
+.section-clone {
+  pointer-events: none;
+}
+
+/* Takes up no layout space at all, so the document simply can't be scrolled
+   into it — the natural scroll boundary sits at Home's top, same as before
+   this section existed. Removed once the first forward loop completes. */
+.section-clone.is-locked {
+  display: none;
+}
+
+.section__inner {
+  max-width: 460px;
+  width: 100%;
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 2.25rem clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section.is-active .section__inner {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin: 0 0 1rem;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 0 0 2rem;
+}
+
+.tagline {
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+}
+
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 620px;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  background: var(--accent-strong);
+  color: #04121c;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow);
+}
+
+.cta:hover, .cta:focus-visible {
+  transform: translateY(-2px);
+}
+
+.cta--resume {
+  background: transparent;
+  border: 2px solid var(--accent-strong);
+  color: var(--text);
+}
+
+.group-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin: 2.5rem 0 1rem;
+}
+
+.group-title:first-of-type {
+  margin-top: 0;
+}
+
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.card__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.card__head h3, .card__head h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card__meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.card__role {
+  margin: 0 0 0.5rem;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.card ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.card li + li { margin-top: 0.4rem; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-group h3 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem;
+}
+
+.pill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill-list li {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.88rem;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 2rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.9rem;
+}
+
+.contact-list__label {
+  width: 90px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.contact-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.05rem;
+  border-bottom: 1px solid transparent;
+}
+
+.contact-list a:hover, .contact-list a:focus-visible {
+  border-bottom-color: var(--accent-strong);
+}
+
+.site-footer {
+  margin-top: 3rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 20;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  backdrop-filter: blur(6px);
+  color: var(--text);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.theme-toggle:hover, .theme-toggle:focus-visible {
+  transform: scale(1.06);
+}
+
+/* Centered Lissajous curve + attractor stage */
+.curve-stage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Wider than tall: gives dots/labels near the curve's left and right
+     extremes more horizontal room before they'd otherwise sit under the
+     corner content panels or run off the viewport edge. Capped by vw too
+     so it still can't exceed the actual viewport on narrow/portrait
+     screens (vmin alone isn't enough of a guard there). */
+  width: min(120vmin, 96vw, 1500px);
+  height: min(94vmin, 1300px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+#attractor-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.curve-nav {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.curve-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.curve-path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.curve-path--base {
+  stroke: var(--curve-base);
+  stroke-width: 2.6;
+}
+
+.curve-path--trace {
+  stroke: var(--curve-trace);
+  stroke-width: 3.6;
+  transition: stroke 0.4s ease;
+  filter: drop-shadow(0 0 4px var(--curve-trace));
+}
+
+.curve-marker {
+  fill: var(--curve-trace);
+  transition: fill 0.4s ease;
+  filter: drop-shadow(0 0 4px var(--curve-trace));
+}
+
+.curve-dots {
+  position: absolute;
+  inset: 0;
+}
+
+.curve-dot-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.curve-dot-label.is-current {
+  color: var(--curve-trace);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--curve-trace) 55%, transparent);
+}
+
+.curve-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin: -1rem;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.curve-dot::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--curve-base);
+  border: 2px solid var(--bg);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.curve-dot[aria-current="true"]::before {
+  background: var(--curve-trace);
+  transform: scale(1.35);
+}
+
+.curve-dot.is-pulsing::before {
+  animation: dot-pulse 0.5s ease;
+}
+
+@keyframes dot-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.7); }
+  100% { transform: scale(1.35); }
+}
+
+.curve-dot:focus-visible::before {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+/* Mobile: stack content centered, keep the stage centered but smaller */
+@media (max-width: 780px) {
+  .section {
+    padding: 3.5rem 5vw;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .section__inner {
+    padding: 2rem 1.5rem;
+    max-width: 92vw;
+  }
+
+  .curve-stage {
+    width: min(96vmin, 468px);
+    height: min(96vmin, 468px);
+    opacity: 0.8;
+  }
+
+  .curve-dot-label {
+    font-size: 0.68rem;
+  }
+
+  .theme-toggle {
+    top: auto;
+    bottom: 1.25rem;
+  }
+}
+
+/* Suppress transitions for one frame during the instant loop-back reset */
+html.is-resetting,
+html.is-resetting * {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .cta, .theme-toggle, .curve-dot::before, .section__inner { transition: none; }
+  .section__inner { opacity: 1; transform: none; }
+}

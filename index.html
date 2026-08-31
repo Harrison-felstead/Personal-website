@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harrison Felstead</title>
+<meta name="description" content="Harrison Felstead, Mechatronics and Computer Science student at Monash University.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+    <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+  </button>
+
+  <div id="curve-stage" class="curve-stage" aria-hidden="false">
+    <canvas id="attractor-canvas" aria-hidden="true"></canvas>
+
+    <nav id="curve-nav" class="curve-nav" aria-label="Section navigation">
+      <svg id="curve-svg" class="curve-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path id="curve-path-base" class="curve-path curve-path--base" fill="none" />
+        <path id="curve-path-trace" class="curve-path curve-path--trace" fill="none" />
+        <circle id="curve-marker" class="curve-marker" r="1.4" />
+      </svg>
+      <div class="curve-dots" id="curve-dots" role="list"></div>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- Visual duplicate of Contact used for the reverse seamless wrap: scrolling
+         up past Home lands here first, then script.js silently snaps scrollY
+         forward onto the real #contact by the exact loop distance. Starts with
+         no layout height (see .is-locked in style.css) so it can't be scrolled
+         into at all until the first forward loop has completed once. -->
+    <section id="contact-loop" class="section section--pos-bc section-clone is-locked" data-title="Contact" inert>
+      <div class="section__inner">
+        <h2>Contact</h2>
+        <p class="intro">I'm always open to conversations about engineering, research, or opportunities. Reach out through any of the channels below.</p>
+
+        <ul class="contact-list">
+          <li>
+            <span class="contact-list__label">Email</span>
+            <a href="mailto:Harrison.felstead0@gmail.com">Harrison.felstead0@gmail.com</a>
+          </li>
+          <li>
+            <span class="contact-list__label">GitHub</span>
+            <a href="https://github.com/Harrison-felstead/">github.com/Harrison-felstead</a>
+          </li>
+          <li>
+            <span class="contact-list__label">LinkedIn</span>
+            <a href="https://linkedin.com/in/harrison-felstead">linkedin.com/in/harrison-felstead</a>
+          </li>
+        </ul>
+
+        <a class="cta cta--resume" href="assets/resume.pdf">Download résumé (PDF)</a>
+
+        <footer class="site-footer">
+          <p>© 2026 Harrison Felstead</p>
+        </footer>
+      </div>
+    </section>
+
+    <section id="home" class="section section--pos-tl" data-title="Home" aria-labelledby="home-heading">
+      <div class="section__inner">
+        <h1 id="home-heading">Harrison Felstead</h1>
+        <p class="tagline">Mechatronics engineer &amp; computer scientist student</p>
+        <p class="intro">
+          I'm a Bachelor of Engineering (Hons) / Bachelor of Science student at Monash University,
+          majoring in Mechatronics and Computer Science. My work spans embedded systems, robotics,
+          machine learning and CAD. Recently applying unsupervised learning to custom orthopaedic design.
+        </p>
+      </div>
+    </section>
+
+    <section id="education" class="section section--pos-tr" data-title="Education" aria-labelledby="education-heading">
+      <div class="section__inner">
+        <h2 id="education-heading">Education</h2>
+
+        <article class="card">
+          <div class="card__head">
+            <h3>Monash University</h3>
+            <span class="card__meta">2022 – Present · Melbourne, VIC</span>
+          </div>
+          <p class="card__role">Bachelor of Engineering (Hons) (Mechatronics) / Bachelor of Science (Computer Science)</p>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h3>St Augustine's Marist College</h3>
+            <span class="card__meta">2018 – 2021 · Cairns, QLD</span>
+          </div>
+          <p class="card__role">Queensland Certificate of Education · ATAR: 97.80</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section section--pos-bl" data-title="Experience" aria-labelledby="experience-heading">
+      <div class="section__inner">
+        <h2 id="experience-heading">Experience</h2>
+
+        <h3 class="group-title">Work &amp; Research</h3>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>Research &amp; Development Team Member</h4>
+            <span class="card__meta">April 2026 – Present</span>
+          </div>
+          <p class="card__role">Monash BrewLab · Monash University</p>
+          <ul>
+            <li>Designed and tested multiple fermentation combinations using food chemistry principles, applying a scientific methodology to evaluate, iterate and optimise outcomes.</li>
+            <li>Applied <strong>data analysis</strong> techniques to assess fermentation yields and flavour profiles, translating experimental results into actionable process improvements.</li>
+            <li>Collaborated within a multidisciplinary team to document findings and plan future R&amp;D directions.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>Final Year Project: Custom Orthopaedic Sole Creation using Unsupervised Learning</h4>
+          </div>
+          <p class="card__role">Monash University</p>
+          <ul>
+            <li>Developed an unsupervised <strong>machine learning</strong> pipeline using <strong>K-means clustering</strong> to segment foot pressure maps into superpixels representing regions of similar pressure magnitude and pressure change dynamics.</li>
+            <li>Generated custom 3D-printable sole geometries from clustering outputs, translating biomechanical data into manufacturable designs tailored to individual foot profiles.</li>
+            <li>Spans <strong>machine learning</strong>, <strong>computer vision</strong>, biomechanical analysis and additive manufacturing, forming an end-to-end pipeline from raw data through to physical output.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>Mechatronics &amp; Computer Science Coursework Projects</h4>
+          </div>
+          <p class="card__role">Monash University</p>
+          <ul>
+            <li>Built practical experience across <strong>embedded systems</strong> (C/C++), control systems design, <strong>robotics</strong>, signal processing and <strong>machine learning</strong> (PyTorch), with CAD applied across mechanical design and prototyping units.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>OSHC Educator</h4>
+            <span class="card__meta">Summer 2025 – 2026</span>
+          </div>
+          <p class="card__role">Holy Cross Primary School · Cairns</p>
+          <ul>
+            <li>Supervised and guided primary school students in structured activities, developing communication and patience skills applicable to client-facing engineering roles.</li>
+          </ul>
+        </article>
+
+        <h3 class="group-title">Leadership &amp; Volunteering</h3>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>Vice President</h4>
+            <span class="card__meta">Sep 2024 – Present</span>
+          </div>
+          <p class="card__role">German Liechtenstein Austrian Swiss Society (GLASS) · Monash University</p>
+          <ul>
+            <li>Overseeing committee operations, facilitating decision-making and supporting strategic planning for the society's annual program.</li>
+            <li>Coordinating cross-cultural events and managing a diverse committee, building intercultural communication and organisational skills.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>Education Officer</h4>
+            <span class="card__meta">Sep 2024 – Sep 2025</span>
+          </div>
+          <p class="card__role">Monash Engineering Students Society (MESS) · Monash University</p>
+          <ul>
+            <li>Created the "Ed Guide", a first-year resource adopted by the Engineering faculty to help incoming students navigate academic expectations and university life.</li>
+            <li>Provided peer mentoring and academic support to first-year Engineering students.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>Wellbeing &amp; Equity Officer</h4>
+            <span class="card__meta">Sep 2023 – Sep 2024</span>
+          </div>
+          <p class="card__role">Monash Engineering Students Society (MESS) · Monash University</p>
+          <ul>
+            <li>Developed and launched initiatives to promote mental health awareness within the Engineering faculty.</li>
+            <li>Designed and implemented inclusivity and wellbeing programs serving a student body of thousands.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section section--pos-br" data-title="Skills" aria-labelledby="skills-heading">
+      <div class="section__inner">
+        <h2 id="skills-heading">Skills &amp; Certificates</h2>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Programming</h3>
+            <ul class="pill-list">
+              <li>Python</li><li>C++</li><li>C</li><li>Assembly</li><li>MATLAB</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Frameworks &amp; Tools</h3>
+            <ul class="pill-list">
+              <li>PyTorch</li><li>Jupyter</li><li>Git</li><li>Linux</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Hardware &amp; CAD</h3>
+            <ul class="pill-list">
+              <li>SolidWorks</li><li>Arduino</li><li>Raspberry Pi</li><li>STM32</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Software</h3>
+            <ul class="pill-list">
+              <li>Microsoft Office Suite</li><li>Agile / Scrum</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <ul class="pill-list">
+              <li>English (Native)</li><li>German (A2)</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="group-title">Certifications</h3>
+        <article class="card">
+          <div class="card__head">
+            <h4>Google Project Management Certificate</h4>
+            <span class="card__meta">Coursera · Dec 2023</span>
+          </div>
+          <p class="card__role">Agile and Scrum framework application; team management program design.</p>
+        </article>
+        <article class="card">
+          <div class="card__head">
+            <h4>Google IT Support Certificate</h4>
+            <span class="card__meta">Coursera · Dec 2023</span>
+          </div>
+          <p class="card__role">Network protocols, system administration and network security principles.</p>
+        </article>
+        <article class="card">
+          <div class="card__head">
+            <h4>Working with Children Check</h4>
+          </div>
+        </article>
+
+        <h3 class="group-title">Anthropic</h3>
+        <article class="card">
+          <div class="card__head">
+            <h4>AI Fluency for Builders</h4>
+            <span class="card__meta">Anthropic</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__head">
+            <h4>AI Fluency Framework and Foundations</h4>
+            <span class="card__meta">Anthropic</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__head">
+            <h4>Intro to Subagents</h4>
+            <span class="card__meta">Anthropic</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__head">
+            <h4>Intro to Agent Skills</h4>
+            <span class="card__meta">Anthropic</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__head">
+            <h4>Claude Code in Action</h4>
+            <span class="card__meta">Anthropic</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__head">
+            <h4>Claude Code 101</h4>
+            <span class="card__meta">Anthropic</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section section--pos-tc" data-title="Projects" aria-labelledby="projects-heading">
+      <div class="section__inner">
+        <h2 id="projects-heading">Projects</h2>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>NCCD App</h4>
+            <span class="card__meta">Personal Project</span>
+          </div>
+          <p class="card__role">A tool that helps schools track and report the personalised adjustments made for students with disability, streamlining the Nationally Consistent Collection of Data (NCCD) process.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>Image Processing Cooking App</h4>
+            <span class="card__meta">Personal Project</span>
+          </div>
+          <p class="card__role">An app that uses image processing to recognise ingredients from a photo and suggest recipes you can cook with what's on hand.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>Sidequest</h4>
+            <span class="card__meta">Personal Project</span>
+          </div>
+          <p class="card__role">An app for tracking fun activities and adventures to do with friends, turning ideas into a shared, revisitable list of things to go do together.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h4>Raspberry Pi Home Base</h4>
+            <span class="card__meta">Personal Project</span>
+          </div>
+          <p class="card__role">A Raspberry Pi hub that brings Google Calendar, Spotify, a habit tracker and the weather together into a single home dashboard.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--pos-bc" data-title="Contact" aria-labelledby="contact-heading">
+      <div class="section__inner">
+        <h2 id="contact-heading">Contact</h2>
+        <p class="intro">I'm always open to conversations about engineering, research, or opportunities. Reach out through any of the channels below.</p>
+
+        <ul class="contact-list">
+          <li>
+            <span class="contact-list__label">Email</span>
+            <a href="mailto:Harrison.felstead0@gmail.com">Harrison.felstead0@gmail.com</a>
+          </li>
+          <li>
+            <span class="contact-list__label">GitHub</span>
+            <a href="https://github.com/Harrison-felstead/" target="_blank" rel="noopener noreferrer">github.com/Harrison-felstead</a>
+          </li>
+          <li>
+            <span class="contact-list__label">LinkedIn</span>
+            <a href="https://linkedin.com/in/harrison-felstead" target="_blank" rel="noopener noreferrer">linkedin.com/in/harrison-felstead</a>
+          </li>
+        </ul>
+
+        <a class="cta cta--resume" href="assets/resume.pdf" download>Download résumé (PDF)</a>
+
+        <footer class="site-footer">
+          <p>© <span id="year"></span> Harrison Felstead</p>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Visual duplicate of Home used purely for a seamless scroll wrap: once this
+         is reached, script.js silently snaps scrollY back to the real #home by the
+         exact distance between the two, so the loop is imperceptible. -->
+    <section id="home-loop" class="section section--pos-tl section-clone" data-title="Home" inert>
+      <div class="section__inner">
+        <h1>Harrison Felstead</h1>
+        <p class="tagline">Mechatronics engineer &amp; computer scientist student</p>
+        <p class="intro">
+          I'm a Bachelor of Engineering (Hons) / Bachelor of Science student at Monash University,
+          majoring in Mechatronics and Computer Science. My work spans embedded systems, robotics,
+          machine learning and CAD. Recently applying unsupervised learning to custom orthopaedic design.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
