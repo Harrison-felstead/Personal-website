@@ -54,6 +54,10 @@ body {
 main {
   position: relative;
   z-index: 2;
+  /* main spans the full document height/width above the fixed curve nav
+     (z-index 1) — without this it swallows clicks meant for whichever
+     curve dot falls under its empty space. .section__inner opts back in. */
+  pointer-events: none;
 }
 
 .section {
@@ -81,6 +85,7 @@ main {
 }
 
 .section__inner {
+  pointer-events: auto;
   max-width: 460px;
   width: 100%;
   background: var(--panel-bg);
