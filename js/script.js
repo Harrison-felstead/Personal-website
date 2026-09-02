@@ -374,12 +374,23 @@
   /* Active-section tracking: aria-current, pulse, label, pop-in boxes
      (popSections includes the hidden #home-loop clone so it also pops in
      as you scroll into it, keeping the illusion consistent right up to
-     the seamless wrap). */
+     the seamless wrap).
+
+     threshold is a fraction of the *target's own* area, not the viewport's —
+     for a section taller than the viewport (e.g. Experience, which has far
+     more cards than the others and grows tall on the narrow mobile layout),
+     a fixed fraction like 0.3 of its own height can be mathematically
+     unreachable, leaving it permanently un-toggled. Using threshold: 0 with
+     a rootMargin that shrinks the root to a thin band around the viewport's
+     vertical center instead triggers on crossing that band, independent of
+     how tall the section itself is. */
+  const SCROLLSPY_OPTS = { threshold: 0, rootMargin: "-45% 0px -45% 0px" };
+
   const popObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       entry.target.classList.toggle("is-active", entry.isIntersecting);
     });
-  }, { threshold: 0.3 });
+  }, SCROLLSPY_OPTS);
   popSections.forEach((s) => popObserver.observe(s));
 
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -396,7 +407,7 @@
         setTimeout(() => btn.classList.remove("is-pulsing"), 500);
       }
     });
-  }, { threshold: 0.5 });
+  }, SCROLLSPY_OPTS);
 
   sections.forEach((s) => sectionObserver.observe(s));
 
