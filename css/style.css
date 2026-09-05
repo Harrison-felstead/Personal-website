@@ -202,6 +202,13 @@ h2 {
   white-space: nowrap;
 }
 
+/* Projects cards show the subtitle under the title instead of beside it. */
+#projects .card__head {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+}
+
 .card__role {
   margin: 0 0 0.5rem;
   color: var(--text-muted);
