@@ -584,7 +584,21 @@
   }
 
   const PARTICLE_COUNT = 400;
-  const TRAIL_LENGTH = 6;
+  /* Particles are stepped/recorded every 3rd frame (~20 pushes/sec at
+     60fps), so a trail of 20 history entries spans roughly one second. */
+  const TRAIL_LENGTH = 20;
+
+  /* Fades a color toward its own grayscale value — used to desaturate the
+     tail end of each particle's trail as it ages. amount: 0 = original
+     color, 1 = fully gray. */
+  function desaturateColor(color, amount) {
+    const gray = 0.299 * color[0] + 0.587 * color[1] + 0.114 * color[2];
+    return [
+      color[0] + (gray - color[0]) * amount,
+      color[1] + (gray - color[1]) * amount,
+      color[2] + (gray - color[2]) * amount,
+    ];
+  }
 
   let stageWidth = 0;
   let stageHeight = 0;
@@ -637,10 +651,11 @@
   }
 
   function drawParticle(p, alphaScale) {
-    const color = p.slot === 0 ? attractorColorA : attractorColorB;
+    const baseColor = p.slot === 0 ? attractorColorA : attractorColorB;
     const n = p.history.length;
     for (let i = 0; i < n; i++) {
       const age = (i + 1) / n; // 0 (oldest) .. 1 (current position)
+      const color = desaturateColor(baseColor, 1 - age);
       drawPoint(p.history[i], color, alphaScale * (0.12 + 0.88 * age * age), 0.9 + 1.1 * age);
     }
   }
