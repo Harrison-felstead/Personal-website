@@ -202,6 +202,23 @@ h2 {
   white-space: nowrap;
 }
 
+.card__verify {
+  flex-shrink: 0;
+  color: var(--accent-strong);
+  border: 1px solid var(--accent-strong);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.card__verify:hover, .card__verify:focus-visible {
+  background: var(--accent-strong);
+  color: var(--bg);
+}
+
 /* Projects cards show the subtitle under the title instead of beside it. */
 #projects .card__head {
   flex-direction: column;
