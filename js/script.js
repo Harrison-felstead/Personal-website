@@ -665,13 +665,25 @@
   }
 
   let rafId = null;
-  let frameCount = 0;
 
-  function animateAttractor() {
-    frameCount++;
-    if (frameCount % 3 === 0) {
+  /* Particles advance on a wall-clock timer (one step per STEP_MS) instead of
+     every Nth frame, so the flow stays the same speed even when scrolling
+     drops the frame rate. Capped catch-up avoids a burst after a long stall. */
+  const STEP_MS = 50;
+  let lastFrameTime = 0;
+  let stepAccum = 0;
+
+  function animateAttractor(now) {
+    const elapsed = lastFrameTime ? Math.min(now - lastFrameTime, 250) : 0;
+    lastFrameTime = now;
+    stepAccum += elapsed;
+    let steps = 0;
+    while (stepAccum >= STEP_MS && steps < 4) {
       particles.forEach((p) => stepAndRecord(p));
+      stepAccum -= STEP_MS;
+      steps++;
     }
+    if (steps === 4) stepAccum = 0;
     ctx.clearRect(0, 0, stageWidth, stageHeight);
     particles.forEach((p) => drawParticle(p, 1));
     rafId = requestAnimationFrame(animateAttractor);
@@ -689,6 +701,8 @@
 
   function startAttractor() {
     if (rafId) cancelAnimationFrame(rafId);
+    lastFrameTime = 0;
+    stepAccum = 0;
     resizeCanvas();
     initParticles();
     if (prefersReducedMotion.matches) {
