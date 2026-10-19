@@ -77,27 +77,54 @@ main {
 
 /* Sections with many entries span both sides of the screen */
 .section--span { justify-content: center; }
-.section--span .section__inner { max-width: 1400px; }
 
-.card-grid {
+/* Split sections: the container goes invisible and two glass panes sit in the
+   left and right thirds, leaving the middle third clear for the curve. */
+.section .section__inner--split {
+  max-width: 1500px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 430px), 1fr));
-  gap: 1.1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
   align-items: start;
-  margin-bottom: 1.5rem;
+  pointer-events: none;
 }
 
-.card-grid > .project { margin-bottom: 0; }
-.card-grid > .project--featured { grid-column: 1 / -1; }
-
-.split {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 430px), 1fr));
-  gap: 2rem;
-  align-items: start;
+.pane {
+  pointer-events: auto;
+  background: var(--panel-bg);
+  backdrop-filter: blur(22px) saturate(1.7);
+  -webkit-backdrop-filter: blur(22px) saturate(1.7);
+  border: 1px solid var(--glass-edge);
+  border-radius: 22px;
+  padding: 2.25rem clamp(1.25rem, 2.5vw, 2.25rem);
+  box-shadow: var(--shadow), inset 0 1px 0 var(--glass-edge);
 }
 
-.split .group-title:first-child { margin-top: 0; }
+.pane .project__story > div { grid-template-columns: 1fr; gap: 0.15rem; }
+.pane .project__story .is-outcome { padding: 0.65rem 0.85rem; }
+
+.pane:first-child { grid-column: 1; }
+.pane:last-child { grid-column: 3; }
+
+.pane > .group-title:first-child,
+.pane > h2 + .group-title { margin-top: 0; }
+.pane > .group-title { margin-top: 2rem; }
+
+@media (max-width: 1100px) {
+  .section .section__inner--split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pane:last-child { grid-column: 2; }
+}
+
+@media (max-width: 780px) {
+  .section .section__inner--split { grid-template-columns: minmax(0, 1fr); max-width: 92vw; }
+  .pane:first-child, .pane:last-child { grid-column: 1; }
+}
 
 .section-clone {
   pointer-events: none;
