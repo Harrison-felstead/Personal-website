@@ -242,6 +242,175 @@ h2 {
 
 .card li + li { margin-top: 0.4rem; }
 
+/* Wider panels for content-heavy sections */
+.section__inner--wide { max-width: 780px; }
+.section__inner--mid { max-width: 600px; }
+
+/* Project story cards: tags, title, then Challenge / What I did / Outcome */
+.project {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.4rem 1.6rem 1.4rem 1.9rem;
+  margin-bottom: 1.1rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--accent-strong), var(--curve-trace));
+}
+
+.project:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-strong);
+}
+
+.project--featured {
+  border-color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent-strong) 7%, var(--bg-elevated));
+}
+
+.project__head h4 {
+  margin: 0.55rem 0 0.9rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.project--compact .project__head h4 { margin-bottom: 0.5rem; }
+
+.project__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.tag--type {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: #04121c;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.project__story {
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.project__story > div {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.project__story dt {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.project__story dd {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.project__story .is-outcome {
+  padding: 0.7rem 0.9rem;
+  margin-top: 0.2rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent-strong) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-strong) 40%, transparent);
+}
+
+.project__story .is-outcome dd { color: var(--text); }
+
+.project__text {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.chip-list {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip-list li {
+  font-size: 0.78rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.capability-list {
+  margin: 0 0 1.5rem;
+  padding-left: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.capability-list li + li { margin-top: 0.4rem; }
+.capability-list strong { color: var(--text); }
+
+.verify-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.verify-list a {
+  display: inline-block;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-strong);
+  color: var(--accent-strong);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.verify-list a:hover, .verify-list a:focus-visible {
+  background: var(--accent-strong);
+  color: var(--bg);
+}
+
+@media (max-width: 560px) {
+  .project__story > div { grid-template-columns: 1fr; gap: 0.15rem; }
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

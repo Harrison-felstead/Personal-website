@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Harrison Felstead</title>
+<style>
+  :root { --navy:#1f3864; --text:#222; --muted:#555; }
+  * { box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 9.6pt; line-height: 1.42; color: var(--text); margin: 0; }
+  header { text-align: center; padding-bottom: 6px; border-bottom: 2.5px solid var(--navy); margin-bottom: 4px; }
+  h1 { font-size: 24pt; margin: 0 0 2px; color: var(--navy); letter-spacing: 0.3px; }
+  .contact { font-size: 8.8pt; color: var(--muted); }
+  h2 { font-size: 10.8pt; color: var(--navy); text-transform: uppercase; letter-spacing: 0.8px; margin: 14px 0 7px; padding-bottom: 2px; border-bottom: 1.2px solid var(--navy); break-after: avoid; }
+  h3 { font-size: 9.4pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin: 10px 0 6px; break-after: avoid; }
+  p { margin: 0; }
+  .entry { margin-bottom: 10px; break-inside: avoid; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .title { font-weight: 700; font-size: 10.2pt; }
+  .date { font-style: italic; color: var(--muted); white-space: nowrap; font-size: 9pt; }
+  .sub { font-style: italic; color: var(--muted); margin-bottom: 2px; }
+  ul { margin: 2px 0 0; padding-left: 16px; }
+  li { margin-bottom: 2px; padding-left: 1px; }
+  ul.cols { columns: 2; column-gap: 24px; }
+  ul.cols li { break-inside: avoid; margin-bottom: 3px; }
+  .kv { margin-bottom: 3px; }
+  .kv b { display: inline-block; min-width: 118px; }
+  .compact li { margin-bottom: 3px; }
+</style></head><body>
+<header>
+  <h1>Harrison Felstead</h1>
+  <div class="contact">South Yarra, VIC &nbsp;•&nbsp; +61 488 077 245 &nbsp;•&nbsp; Harrison.felstead0@gmail.com &nbsp;•&nbsp; linkedin.com/in/harrison-felstead &nbsp;•&nbsp; harrison-felstead.github.io/Personal-website</div>
+</header>
+
+<h2>Professional Summary</h2>
+<p>Final-year Mechatronics (Honours) and Computer Science student at Monash University (completing June 2027), focused on AI development. Built a computer vision and A* pathfinding system for an autonomous robot, an unsupervised learning pipeline that turns foot pressure data into 3D-printed insoles, and a data logging app heading to a school pilot in 2027. Combines AI and software skills with PLC, embedded and CAD experience. Seeking internship and graduate roles in AI development with mentorship.</p>
+
+<h2>Areas of Expertise</h2>
+<ul class="cols"><li><b>AI development:</b> neural networks (PyTorch), unsupervised learning, computer vision (YOLO)</li><li><b>PLC control systems:</b> ladder logic and HMI (CODESYS), ISA-95, SCADA concepts</li><li><b>Hardware and software integration:</b> STM32, Arduino, Raspberry Pi</li><li><b>Testing, troubleshooting and verification</b> of robots and microprocessor systems</li><li><b>App development:</b> PostgreSQL, Expo, React, Tailwind</li><li><b>Data organisation</b>, process streamlining and technical documentation</li><li><b>CAD and additive manufacturing:</b> SolidWorks (CSWA), TPU 3D printing</li><li><b>Team leadership</b> and project delivery in teams of 3 to 5</li></ul>
+
+<h2>Professional Experience</h2>
+<h3>Engineering &amp; Technical Projects</h3>
+
+  <div class="entry">
+    <div class="row"><span class="title">Final Year Project: Custom Orthopaedic Sole Creation using Unsupervised Learning</span><span class="date">2026 – Present</span></div>
+    <div class="sub">Monash University · Team of 3 (only Mechatronics student)</div>
+    <ul><li>Developed an end-to-end workflow from raw plantar pressure data to a 3D-printable customised sole, using unsupervised learning (K-means) to group regions of similar pressure.</li><li>Printed 5 TPU prototypes and validated them on a Pedar in-shoe pressure system, measuring pressure change across the gait cycle.</li><li>Corrected incorrect material allocation on the pressure map by adding parameters and methods that follow accepted orthotic design practice, giving a significant improvement.</li><li>With no existing quantitative benchmark, defined our own comparison measures; results indicate improvement without claiming a complete definition.</li><li>Managed scope by cutting feature additions to focus on pressure reduction. Applied technical documentation, test planning and iteration from earlier mistakes.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">Fruit-Finding Robot: Pathfinding and Vision System</span><span class="date">Sem 2 2025</span></div>
+    <div class="sub">Monash University · Team of 4</div>
+    <ul><li>Developed A* pathfinding and a YOLO vision system in Python so a robot could identify fruit and navigate around obstacles using only what it could see.</li><li>Programmed and implemented the vision system and optimised parameters during testing.</li><li>Robot collected all fruit within the time limit with no obstacle collisions.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">NCCD Mobile App and Website</span><span class="date">Early 2026 – Present</span></div>
+    <div class="sub">Client project (outside university)</div>
+    <ul><li>Built a data logging system that removes roadblocks for teachers and school staff collecting the data used to support school funding, using PostgreSQL, Expo, React and Tailwind.</li><li>Learned the fundamentals of regulated data storage, UI/UX design, and working with clients to deliver a product.</li><li>Prototypes are performing well; a school pilot is scheduled for Term 1 2027.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">Carpark Carousel PLC System</span><span class="date">Sem 2 2026</span></div>
+    <div class="sub">Monash University · Team of 5</div>
+    <ul><li>Designed a multi-PLC control system for a carpark carousel using CODESYS (ladder logic and HMI) and built a small prototype for demonstration, applying ISA-95 and SCADA concepts.</li><li>Designed the safety PLC and the communication between PLCs, delivering dynamic fault detection and working multi-PLC communication.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">Research &amp; Development Team Member</span><span class="date">Apr 2026 – Present</span></div>
+    <div class="sub">Monash BrewLab, Monash University</div>
+    <ul><li>Researched new recipes and adapted them to our lab conditions and equipment, then produced them.</li><li>Trained most new members to use the space and built their confidence with the equipment.</li></ul>
+  </div>
+<h3>Leadership</h3>
+
+  <div class="entry">
+    <div class="row"><span class="title">Brewkeepers Lead</span><span class="date">2026 – Present</span></div>
+    <div class="sub">Monash BrewLab, Monash University · Sub-team of 3 to 5</div>
+    <ul><li>Lead the sub-team responsible for lab upkeep, logistics and administration, keeping operations organised so the wider team can run its work.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">Education Officer</span><span class="date">Sep 2024 – Sep 2025</span></div>
+    <div class="sub">Monash Engineering Students Society (MESS), Monash University</div>
+    <ul><li>Designed and wrote the "Ed Guide", a first-year resource adopted by the Engineering faculty.</li><li>Mentored first-year Engineering students.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">Vice President</span><span class="date">Sep 2024 – Present</span></div>
+    <div class="sub">German Liechtenstein Austrian Swiss Society (GLASS), Monash University</div>
+    <ul><li>Oversee committee operations, guide decision-making and plan the society's annual program, including cross-cultural events.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="title">Wellbeing &amp; Equity Officer</span><span class="date">Sep 2023 – Sep 2024</span></div>
+    <div class="sub">Monash Engineering Students Society (MESS), Monash University</div>
+    <ul><li>Designed and launched mental health awareness and inclusivity programs across the Engineering faculty.</li></ul>
+  </div>
+<h3>Other Employment</h3>
+
+  <div class="entry">
+    <div class="row"><span class="title">OSHC Educator</span><span class="date">Summer 2025 – 2026</span></div>
+    <div class="sub">Holy Cross Primary School, Cairns, QLD</div>
+    <ul><li>Supervised and guided primary school students in structured activities, building the communication and patience needed for client-facing work.</li></ul>
+  </div>
+
+<h2>Education and Qualifications</h2>
+<div class="entry">
+  <div class="row"><span class="title">Bachelor of Engineering (Honours) (Mechatronics) / Bachelor of Science (Computer Science)</span><span class="date">2022 – Present</span></div>
+  <div class="sub">Monash University, Melbourne, VIC · Expected completion June 2027</div>
+  <ul>
+    <li>Coursework: neural networks and machine learning (PyTorch), control systems, PLC systems, signal processing, embedded systems (C/C++), robotics, CAD.</li>
+    <li>Safety training: chemistry units covering risk assessments, PPE, and safe chemical handling and disposal.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span class="title">Queensland Certificate of Education</span><span class="date">2018 – 2021</span></div>
+  <div class="sub">St Augustine's Marist College, Cairns, QLD · ATAR: 97.80</div>
+</div>
+<ul class="compact">
+  <li><b>Certified SOLIDWORKS Associate (CSWA)</b></li>
+  <li><b>Google Project Management Certificate</b>, Coursera, Dec 2023</li>
+  <li><b>Google IT Support Certificate</b>, Coursera, Dec 2023</li>
+  <li><b>Working with Children Check</b> held</li>
+</ul>
+
+<h2>Continuing Professional Development</h2>
+<ul class="compact">
+  <li>Anthropic: AI Fluency (Framework and Foundations; for Builders)</li>
+  <li>Anthropic: Claude Code 101 and Claude Code in Action</li>
+  <li>Anthropic: Introduction to Agent Skills and Subagents</li>
+  <li>Anthropic: Model Context Protocol (Introduction and Advanced Topics); Building with Claude API</li>
+</ul>
+
+<h2>Skills</h2>
+<div class="kv"><b>Programming:</b> Python, C++, C, Assembly, MATLAB</div>
+<div class="kv"><b>AI and Data:</b> PyTorch, YOLO, K-means, Jupyter</div>
+<div class="kv"><b>Web and App:</b> React, Expo, Tailwind, PostgreSQL</div>
+<div class="kv"><b>Hardware and CAD:</b> CODESYS, STM32, Arduino, Raspberry Pi, SolidWorks</div>
+<div class="kv"><b>Tools:</b> Git, Linux, Microsoft Office Suite, Agile / Scrum</div>
+<div class="kv"><b>Languages:</b> English (Native), German (A2)</div>
+
+<h2>Interests</h2>
+<p>Surfing, hiking, and building quality-of-life apps. Volunteer, Rosies Friends on the Street, Cairns (2014 – 2017), preparing and distributing food to vulnerable community members.</p>
+
+<h2>References</h2>
+<p><i>Available upon request.</i></p>
+</body></html>

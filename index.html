@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harrison Felstead</title>
-<meta name="description" content="Harrison Felstead, Mechatronics and Computer Science student at Monash University.">
+<meta name="description" content="Harrison Felstead, Mechatronics (Hons) and Computer Science student at Monash University, interested in AI development.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -37,7 +37,7 @@
     <section id="contact-loop" class="section section--pos-bc section-clone is-locked" data-title="Contact" inert>
       <div class="section__inner">
         <h2>Contact</h2>
-        <p class="intro">I'm always open to conversations about engineering, research, or opportunities. Reach out through any of the channels below.</p>
+        <p class="intro">I am always open to conversations about engineering, AI development, or opportunities. Reach out through any of the channels below.</p>
 
         <ul class="contact-list">
           <li>
@@ -65,133 +65,192 @@
     <section id="home" class="section section--pos-tl" data-title="Home" aria-labelledby="home-heading">
       <div class="section__inner">
         <h1 id="home-heading">Harrison Felstead</h1>
-        <p class="tagline">Mechatronics engineering &amp; Computer Scientist student.</p>
+        <p class="tagline">Mechatronics engineering &amp; Computer Science student.</p>
         <p class="intro">
-          I am a Bachelor of Engineering (Hons) and Bachelor of Science student at Monash University,
-          majoring in Mechatronics and Computer Science. My work spans embedded systems, robotics,
-          machine learning and CAD. Final year project is development of an unsupervised learning models to generate custom orthotics insoles.
+          Final-year Bachelor of Engineering (Honours) and Bachelor of Science student at Monash University,
+          majoring in Mechatronics and Computer Science, completing June 2027. I build at the boundary of
+          AI and hardware: neural networks and computer vision, PLC and embedded control systems, and
+          software that gets used. My final year project turns foot pressure data into 3D-printed custom insoles.
         </p>
       </div>
     </section>
 
-    <section id="education" class="section section--pos-tr" data-title="Education" aria-labelledby="education-heading">
-      <div class="section__inner">
-        <h2 id="education-heading">Education</h2>
-
-        <article class="card">
-          <div class="card__head">
-            <h3>Monash University</h3>
-            <span class="card__meta">2022 – Present · Melbourne, VIC</span>
-          </div>
-          <p class="card__role">Bachelor of Engineering (Hons) (Mechatronics) and Bachelor of Science (Computer Science)</p>
-        </article>
-
-        <article class="card">
-          <div class="card__head">
-            <h3>St Augustine's Marist College</h3>
-            <span class="card__meta">2018 – 2021 · Cairns, QLD</span>
-          </div>
-          <p class="card__role">Queensland Certificate of Education · ATAR: 97.80</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="experience" class="section section--pos-bl" data-title="Experience" aria-labelledby="experience-heading">
-      <div class="section__inner">
+    <section id="experience" class="section section--pos-tr" data-title="Experience" aria-labelledby="experience-heading">
+      <div class="section__inner section__inner--wide">
         <h2 id="experience-heading">Experience</h2>
 
-        <h3 class="group-title">Work and Research</h3>
+        <h3 class="group-title">Engineering &amp; Technical Projects</h3>
 
-        <article class="card">
-          <div class="card__head">
-            <h4>Research and development Team Member</h4>
-            <span class="card__meta">April 2026 – Present</span>
-          </div>
-          <p class="card__role">Monash BrewLab · Monash University</p>
-          <ul>
-            <li>Designed and tested multiple fermentation combinations using food chemistry principles, applying a scientific methodology to evaluate, iterate and optimise outcomes.</li>
-            <li>Applied <strong>data analysis</strong> techniques to assess fermentation yields and flavour profiles, translating experimental results into actionable process improvements.</li>
-            <li>Collaborated within a multidisciplinary team to document findings and plan future R&amp;D directions.</li>
-          </ul>
+        <article class="project project--featured">
+          <header class="project__head">
+            <div class="project__tags">
+              <span class="tag tag--type">Final year project</span>
+              <span class="tag">Team of 3</span>
+              <span class="tag">Monash University</span>
+            </div>
+            <h4>Custom Orthopaedic Soles using Unsupervised Learning</h4>
+          </header>
+          <dl class="project__story">
+            <div><dt>Challenge</dt><dd>Turn raw plantar pressure measurements into a manufacturable, customised sole.</dd></div>
+            <div><dt>What we built</dt><dd>An end-to-end workflow from raw pressure data to a 3D-printable sole, using unsupervised learning (K-means) to find regions of similar pressure. I was the only Mechatronics student on the team.</dd></div>
+            <div><dt>Problems solved</dt><dd>Material allocation on the pressure map was wrong, so we added parameters and methods that follow accepted orthotic design practice, which gave a significant improvement. With no existing quantitative benchmark, we defined our own measures of improvement. They indicate gains without being a complete definition.</dd></div>
+            <div><dt>Scope control</dt><dd>Cut planned feature additions to focus on what mattered most: reducing foot pressure.</dd></div>
+            <div class="is-outcome"><dt>Outcome</dt><dd>5 TPU prototypes printed and validated on a Pedar in-shoe system, measuring pressure change across the gait cycle. Built skills in technical documentation, test planning and iterating from earlier mistakes.</dd></div>
+          </dl>
+          <ul class="chip-list"><li>Python</li><li>K-means</li><li>SolidWorks</li><li>TPU 3D printing</li><li>Pedar</li></ul>
         </article>
 
-        <article class="card">
-          <div class="card__head">
-            <h4>Final Year Project: Custom Orthopaedic Sole Creation using Unsupervised Learning</h4>
-          </div>
-          <p class="card__role">Monash University</p>
-          <ul>
-            <li>Developed an unsupervised <strong>machine learning</strong> pipeline using <strong>K-means clustering</strong> to segment foot pressure maps into superpixels representing regions of similar pressure magnitude and pressure change dynamics.</li>
-            <li>Generated custom 3D-printable sole geometries from clustering outputs, translating biomechanical data into manufacturable designs tailored to individual foot profiles.</li>
-            <li>Spans <strong>machine learning</strong>, <strong>computer vision</strong>, biomechanical analysis and additive manufacturing, forming an end-to-end pipeline from raw data through to physical output.</li>
-          </ul>
+        <article class="project">
+          <header class="project__head">
+            <div class="project__tags">
+              <span class="tag tag--type">University project</span>
+              <span class="tag">Team of 5</span>
+              <span class="tag">Sem 2 2026</span>
+            </div>
+            <h4>Carpark Carousel PLC System</h4>
+          </header>
+          <dl class="project__story">
+            <div><dt>Challenge</dt><dd>Design a multi-PLC control system and demonstrate it on a small prototype.</dd></div>
+            <div><dt>What I did</dt><dd>Designed the safety PLC and the communication between the PLCs. The team used CODESYS for ladder logic and the HMI, and applied ISA-95 and SCADA concepts.</dd></div>
+            <div class="is-outcome"><dt>Outcome</dt><dd>A dynamic fault detection system and working communication between multiple PLCs, shown on a prototype demonstration.</dd></div>
+          </dl>
+          <ul class="chip-list"><li>CODESYS</li><li>Ladder logic</li><li>HMI</li><li>ISA-95</li><li>SCADA</li></ul>
         </article>
 
-        <article class="card">
-          <div class="card__head">
-            <h4>Mechatronics &amp; Computer Science Coursework Projects</h4>
-          </div>
-          <p class="card__role">Monash University</p>
-          <ul>
-            <li>Built practical experience across <strong>embedded systems</strong> (C/C++), control systems design, <strong>robotics</strong>, signal processing and <strong>machine learning</strong> (PyTorch), with CAD applied across mechanical design and prototyping units.</li>
-          </ul>
+        <article class="project">
+          <header class="project__head">
+            <div class="project__tags">
+              <span class="tag tag--type">University project</span>
+              <span class="tag">Team of 4</span>
+              <span class="tag">Sem 2 2025</span>
+            </div>
+            <h4>Fruit-Finding Robot: Pathfinding and Vision</h4>
+          </header>
+          <dl class="project__story">
+            <div><dt>Challenge</dt><dd>Find and collect fruit and avoid obstacles using only what the robot can see.</dd></div>
+            <div><dt>What I did</dt><dd>Programmed and implemented the YOLO vision system and tuned parameters during testing. The team built A* pathfinding in Python.</dd></div>
+            <div class="is-outcome"><dt>Outcome</dt><dd>The robot collected all the fruit within the time limit with no collisions.</dd></div>
+          </dl>
+          <ul class="chip-list"><li>Python</li><li>A*</li><li>YOLO</li><li>Computer vision</li></ul>
         </article>
+
+        <article class="project">
+          <header class="project__head">
+            <div class="project__tags">
+              <span class="tag tag--type">Client project</span>
+              <span class="tag">Early 2026 to present</span>
+            </div>
+            <h4>NCCD Mobile App and Website</h4>
+          </header>
+          <dl class="project__story">
+            <div><dt>Challenge</dt><dd>Teachers and school staff struggle to collect the data schools need to claim disability funding.</dd></div>
+            <div><dt>What I did</dt><dd>Built a data logging system that removes those roadblocks. Learned the fundamentals of regulated data storage, UI/UX design, and working with clients to deliver a product.</dd></div>
+            <div class="is-outcome"><dt>Outcome</dt><dd>Prototypes are performing well and a school pilot is scheduled for Term 1 2027.</dd></div>
+          </dl>
+          <ul class="chip-list"><li>PostgreSQL</li><li>Expo</li><li>React</li><li>Tailwind</li></ul>
+        </article>
+
+        <article class="project">
+          <header class="project__head">
+            <div class="project__tags">
+              <span class="tag tag--type">R&amp;D</span>
+              <span class="tag">Apr 2026 – Present</span>
+              <span class="tag">Monash BrewLab</span>
+            </div>
+            <h4>Research &amp; Development Team Member</h4>
+          </header>
+          <dl class="project__story">
+            <div><dt>Challenge</dt><dd>Take interesting new recipes and make them workable within our lab conditions.</dd></div>
+            <div><dt>What I did</dt><dd>Researched recipes, adapted them to our equipment, and produced them. Trained most of the new members to use the space and built their confidence with the equipment.</dd></div>
+            <div class="is-outcome"><dt>Outcome</dt><dd>New recipes in production and new members confident working in the lab.</dd></div>
+          </dl>
+        </article>
+
+        <h3 class="group-title">Other Employment</h3>
 
         <article class="card">
           <div class="card__head">
             <h4>OSHC Educator</h4>
-            <span class="card__meta">Summer 2025 – 2026</span>
+            <span class="card__meta">Summer 2025 – 2026 · Cairns, QLD</span>
           </div>
-          <p class="card__role">Holy Cross Primary School · Cairns</p>
+          <p class="card__role">Holy Cross Primary School</p>
           <ul>
-            <li>Supervised and guided primary school students in structured activities, developing communication and patience skills applicable to client-facing engineering roles.</li>
+            <li>Supervised and guided primary school students in structured activities, building the communication and patience needed for client-facing work.</li>
           </ul>
         </article>
+      </div>
+    </section>
 
-        <h3 class="group-title">Leadership &amp; Volunteering</h3>
+    <section id="leadership" class="section section--pos-bl" data-title="Leadership" aria-labelledby="leadership-heading">
+      <div class="section__inner section__inner--mid">
+        <h2 id="leadership-heading">Leadership</h2>
 
-        <article class="card">
-          <div class="card__head">
-            <h4>Vice President</h4>
-            <span class="card__meta">Sep 2024 – Present</span>
-          </div>
-          <p class="card__role">German Liechtenstein Austrian Swiss Society (GLASS) · Monash University</p>
-          <ul>
-            <li>Overseeing committee operations, facilitating decision-making and supporting strategic planning for the society's annual program.</li>
-            <li>Coordinating cross-cultural events and managing a diverse committee, building intercultural communication and organisational skills.</li>
-          </ul>
+        <article class="project project--compact">
+          <header class="project__head">
+            <div class="project__tags">
+              <span class="tag tag--type">Team lead</span>
+              <span class="tag">2026 – Present</span>
+              <span class="tag">Monash BrewLab</span>
+            </div>
+            <h4>Brewkeepers Lead</h4>
+          </header>
+          <p class="project__text">Lead a sub-team of 3 to 5 responsible for upkeep of the lab, logistics and administration, so the wider team can focus on making.</p>
         </article>
 
-        <article class="card">
-          <div class="card__head">
+        <article class="project project--compact">
+          <header class="project__head">
+            <div class="project__tags">
+              <span class="tag tag--type">Engineering</span>
+              <span class="tag">Sep 2024 – Sep 2025</span>
+              <span class="tag">MESS · Monash</span>
+            </div>
             <h4>Education Officer</h4>
-            <span class="card__meta">Sep 2024 – Sep 2025</span>
-          </div>
-          <p class="card__role">Monash Engineering Students Society (MESS) · Monash University</p>
-          <ul>
-            <li>Created the 'Ed Guide', a first-year resource adopted by the Engineering faculty to help incoming students navigate academic expectations and university life.</li>
-            <li>Provided peer mentoring and academic support to first-year Engineering students.</li>
-          </ul>
+          </header>
+          <p class="project__text">Designed and wrote the "Ed Guide", a first-year resource adopted by the Engineering faculty. Mentored first-year Engineering students.</p>
         </article>
 
-        <article class="card">
-          <div class="card__head">
+        <article class="project project--compact">
+          <header class="project__head">
+            <div class="project__tags">
+              <span class="tag tag--type">Leadership</span>
+              <span class="tag">Sep 2024 – Present</span>
+              <span class="tag">GLASS · Monash</span>
+            </div>
+            <h4>Vice President</h4>
+          </header>
+          <p class="project__text">Oversee committee operations, guide decision-making and plan the society's annual program, including cross-cultural events.</p>
+        </article>
+
+        <article class="project project--compact">
+          <header class="project__head">
+            <div class="project__tags">
+              <span class="tag tag--type">Programs</span>
+              <span class="tag">Sep 2023 – Sep 2024</span>
+              <span class="tag">MESS · Monash</span>
+            </div>
             <h4>Wellbeing &amp; Equity Officer</h4>
-            <span class="card__meta">Sep 2023 – Sep 2024</span>
-          </div>
-          <p class="card__role">Monash Engineering Students Society (MESS) · Monash University</p>
-          <ul>
-            <li>Developed and launched initiatives to promote mental health awareness within the Engineering faculty.</li>
-            <li>Designed and implemented inclusivity and wellbeing programs serving a student body of thousands.</li>
-          </ul>
+          </header>
+          <p class="project__text">Designed and launched mental health awareness and inclusivity programs across the Engineering faculty.</p>
         </article>
       </div>
     </section>
 
     <section id="skills" class="section section--pos-br" data-title="Skills" aria-labelledby="skills-heading">
-      <div class="section__inner">
-        <h2 id="skills-heading">Skills &amp; Certificates</h2>
+      <div class="section__inner section__inner--mid">
+        <h2 id="skills-heading">Capabilities &amp; Skills</h2>
 
+        <h3 class="group-title">Engineering &amp; Technical Capabilities</h3>
+        <ul class="capability-list">
+          <li><strong>AI development:</strong> neural networks (PyTorch), unsupervised learning, computer vision (YOLO)</li>
+          <li><strong>PLC control systems:</strong> ladder logic and HMI in CODESYS, ISA-95, SCADA</li>
+          <li><strong>Hardware and software integration:</strong> STM32, Arduino, Raspberry Pi</li>
+          <li><strong>Testing, troubleshooting and verification</strong> of robots and microprocessor systems</li>
+          <li><strong>App development:</strong> PostgreSQL, Expo, React, Tailwind</li>
+          <li><strong>Data organisation</strong>, process streamlining and technical documentation</li>
+          <li><strong>CAD and additive manufacturing:</strong> SolidWorks, TPU 3D printing</li>
+        </ul>
+
+        <h3 class="group-title">Tools</h3>
         <div class="skills-grid">
           <div class="skill-group">
             <h3>Programming</h3>
@@ -202,7 +261,7 @@
           <div class="skill-group">
             <h3>Frameworks &amp; Tools</h3>
             <ul class="pill-list">
-              <li>PyTorch</li><li>Jupyter</li><li>Git</li><li>Linux</li>
+              <li>PyTorch</li><li>Jupyter</li><li>Git</li><li>Linux</li><li>CODESYS</li>
             </ul>
           </div>
           <div class="skill-group">
@@ -212,7 +271,7 @@
             </ul>
           </div>
           <div class="skill-group">
-            <h3>Software</h3>
+            <h3>Other</h3>
             <ul class="pill-list">
               <li>Microsoft Office Suite</li><li>Agile / Scrum</li>
             </ul>
@@ -226,6 +285,11 @@
         </div>
 
         <h3 class="group-title">Certifications</h3>
+        <article class="card">
+          <div class="card__head">
+            <h4>Certified SOLIDWORKS Associate (CSWA)</h4>
+          </div>
+        </article>
         <article class="card">
           <div class="card__head">
             <h4>Google Project Management Certificate</h4>
@@ -246,75 +310,24 @@
           </div>
         </article>
 
-        <h3 class="group-title">Anthropic</h3>
-        <article class="card">
-          <div class="card__head">
-            <h4>AI Fluency: Framework and Foundations</h4>
-            <a class="card__verify" href="https://verify.skilljar.com/c/3psyhmuhzu9c" target="_blank" rel="noopener">Verify</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__head">
-            <h4>AI Fluency for Builders</h4>
-            <a class="card__verify" href="https://verify.skilljar.com/c/y3yzbx4f3nra" target="_blank" rel="noopener">Verify</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__head">
-            <h4>Claude Code 101</h4>
-            <a class="card__verify" href="https://verify.skilljar.com/c/m6t9jwaz3s46" target="_blank" rel="noopener">Verify</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__head">
-            <h4>Claude Code in Action</h4>
-            <a class="card__verify" href="https://verify.skilljar.com/c/ev6xskojvovw" target="_blank" rel="noopener">Verify</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__head">
-            <h4>Introduction to Agent Skills</h4>
-            <a class="card__verify" href="https://verify.skilljar.com/c/ketg7f32rxfd" target="_blank" rel="noopener">Verify</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__head">
-            <h4>Introduction to Subagents</h4>
-            <a class="card__verify" href="https://verify.skilljar.com/c/vin993a3mtkn" target="_blank" rel="noopener">Verify</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__head">
-            <h4>Introduction to Model Context Protocol</h4>
-            <a class="card__verify" href="https://verify.skilljar.com/c/spzcx7dwhjyg" target="_blank" rel="noopener">Verify</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__head">
-            <h4>Model Context Protocol: Advanced Topics</h4>
-            <a class="card__verify" href="https://verify.skilljar.com/c/bntky4y8h8ti" target="_blank" rel="noopener">Verify</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__head">
-            <h4>Building with Claude API</h4>
-            <a class="card__verify" href="https://verify.skilljar.com/c/4mguxqz5dji8" target="_blank" rel="noopener">Verify</a>
-          </div>
-        </article>
+        <h3 class="group-title">Continuing Professional Development: Anthropic</h3>
+        <ul class="verify-list">
+          <li><a href="https://verify.skilljar.com/c/3psyhmuhzu9c" target="_blank" rel="noopener">AI Fluency: Framework and Foundations</a></li>
+          <li><a href="https://verify.skilljar.com/c/y3yzbx4f3nra" target="_blank" rel="noopener">AI Fluency for Builders</a></li>
+          <li><a href="https://verify.skilljar.com/c/m6t9jwaz3s46" target="_blank" rel="noopener">Claude Code 101</a></li>
+          <li><a href="https://verify.skilljar.com/c/ev6xskojvovw" target="_blank" rel="noopener">Claude Code in Action</a></li>
+          <li><a href="https://verify.skilljar.com/c/ketg7f32rxfd" target="_blank" rel="noopener">Introduction to Agent Skills</a></li>
+          <li><a href="https://verify.skilljar.com/c/vin993a3mtkn" target="_blank" rel="noopener">Introduction to Subagents</a></li>
+          <li><a href="https://verify.skilljar.com/c/spzcx7dwhjyg" target="_blank" rel="noopener">Introduction to Model Context Protocol</a></li>
+          <li><a href="https://verify.skilljar.com/c/bntky4y8h8ti" target="_blank" rel="noopener">Model Context Protocol: Advanced Topics</a></li>
+          <li><a href="https://verify.skilljar.com/c/4mguxqz5dji8" target="_blank" rel="noopener">Building with Claude API</a></li>
+        </ul>
       </div>
     </section>
 
     <section id="projects" class="section section--pos-tc" data-title="Projects" aria-labelledby="projects-heading">
       <div class="section__inner">
-        <h2 id="projects-heading">Projects</h2>
-
-        <article class="card">
-          <div class="card__head">
-            <h4>NCCD App</h4>
-            <span class="card__meta">Personal Project</span>
-          </div>
-          <p class="card__role">A tool that helps schools track and report the personalised adjustments made for students with disability, streamlining the Nationally Consistent Collection of Data (NCCD) process.</p>
-        </article>
+        <h2 id="projects-heading">Personal Projects</h2>
 
         <article class="card">
           <div class="card__head">
@@ -342,10 +355,40 @@
       </div>
     </section>
 
+    <section id="education" class="section section--pos-bl" data-title="Education" aria-labelledby="education-heading">
+      <div class="section__inner">
+        <h2 id="education-heading">Education</h2>
+
+        <article class="card">
+          <div class="card__head">
+            <h3>Monash University</h3>
+            <span class="card__meta">2022 – Present · Melbourne, VIC</span>
+          </div>
+          <p class="card__role">Bachelor of Engineering (Honours) (Mechatronics) and Bachelor of Science (Computer Science). Expected June 2027.</p>
+          <ul>
+            <li>Chemistry units included risk assessments, PPE, and safe chemical handling and disposal.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h3>St Augustine's Marist College</h3>
+            <span class="card__meta">2018 – 2021 · Cairns, QLD</span>
+          </div>
+          <p class="card__role">Queensland Certificate of Education · ATAR: 97.80</p>
+        </article>
+
+        <h3 class="group-title">Interests &amp; Volunteering</h3>
+        <ul class="pill-list">
+          <li>Surfing</li><li>Hiking</li><li>Building quality-of-life apps</li><li>Volunteer, Rosies Friends on the Street (2014 – 2017)</li>
+        </ul>
+      </div>
+    </section>
+
     <section id="contact" class="section section--pos-bc" data-title="Contact" aria-labelledby="contact-heading">
       <div class="section__inner">
         <h2 id="contact-heading">Contact</h2>
-        <p class="intro">I am always open to conversations about engineering, research, or opportunities. Reach out through any of the channels below.</p>
+        <p class="intro">I am always open to conversations about engineering, AI development, or opportunities. Reach out through any of the channels below.</p>
 
         <ul class="contact-list">
           <li>
@@ -376,11 +419,12 @@
     <section id="home-loop" class="section section--pos-tl section-clone" data-title="Home" inert>
       <div class="section__inner">
         <h1>Harrison Felstead</h1>
-        <p class="tagline">Mechatronics engineer &amp; computer scientist student</p>
+        <p class="tagline">Mechatronics engineering &amp; Computer Science student.</p>
         <p class="intro">
-          I'm a Bachelor of Engineering (Hons) / Bachelor of Science student at Monash University,
-          majoring in Mechatronics and Computer Science. My work spans embedded systems, robotics,
-          machine learning and CAD. Recently applying unsupervised learning to custom orthopaedic design.
+          Final-year Bachelor of Engineering (Honours) and Bachelor of Science student at Monash University,
+          majoring in Mechatronics and Computer Science, completing June 2027. I build at the boundary of
+          AI and hardware: neural networks and computer vision, PLC and embedded control systems, and
+          software that gets used. My final year project turns foot pressure data into 3D-printed custom insoles.
         </p>
       </div>
     </section>
