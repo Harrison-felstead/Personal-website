@@ -386,11 +386,15 @@
      how tall the section itself is. */
   const SCROLLSPY_OPTS = { threshold: 0, rootMargin: "-45% 0px -45% 0px" };
 
+  /* Panels pop in as soon as a slice of their section enters the viewport
+     (not at the center band), so fast scrolling can't skip past them. */
+  const POP_OPTS = { threshold: 0, rootMargin: "0px 0px -8% 0px" };
+
   const popObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       entry.target.classList.toggle("is-active", entry.isIntersecting);
     });
-  }, SCROLLSPY_OPTS);
+  }, POP_OPTS);
   popSections.forEach((s) => popObserver.observe(s));
 
   const sectionObserver = new IntersectionObserver((entries) => {
